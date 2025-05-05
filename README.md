@@ -13,12 +13,19 @@ However, I did invest considerable time figuring out how to build this specific 
   "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64\cl.exe"; 
   ```
 * Run b2.exe with your zlib path
+
   ```
   b2.exe install --prefix=..\boost-vc142 -- 
   build-type=complete --toolset=msvc-14.2 -s 
   ZLIB_SOURCE="C:\hufeng\rocketmq-client-cpp-windows- 
    vs2019\thirdparty\zlib-1.2.3-src\src\zlib\1.2.3\zlib- 
     1.2.3" threading=multi address-model=64 debug release
+  ```
+## 2 Build Solution
+* Open the Solution File
+Locate and open rocketmq-client-cpp.sln in Visual Studio.
 
- ```
-* Run
+* Configure for x64
+In the toolbar, select:
+x64 (Platform) → Debug (Configuration)
+(Release configuration follows the same steps if needed later.)
