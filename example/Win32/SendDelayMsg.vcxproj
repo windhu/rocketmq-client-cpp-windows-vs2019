@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0B156CC7-A991-4554-A29D-8CD0ED982773}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -37,12 +37,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -106,6 +106,16 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>rocketmq-client-cpp.lib;jsoncpp_lib_static.lib;libevent.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)thirdparty\boost-vc142\lib</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\signature\include;$(SolutionDir)include;$(SolutionDir)src;$(SolutionDir)src\common;$(SolutionDir)src\consumer;$(SolutionDir)src\message;$(SolutionDir)src\producer;$(SolutionDir)src\protocol;$(SolutionDir)src\thread;$(SolutionDir)src\thread\disruptor;$(SolutionDir)src\transport;$(SolutionDir)src\log;$(SolutionDir)thirdparty\boost-vc142\include\boost-1_58;$(SolutionDir)thirdparty\jsoncpp-0.10.6;$(SolutionDir)thirdparty\libevent-release-2.0.22\include;$(SolutionDir)thirdparty\libevent-release-2.0.22\WIN32-Code%;(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="../SendDelayMsg.cpp" />
